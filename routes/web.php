@@ -19,3 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'PageController@home');
+//Route::get('/about-us', 'PageController@about');
+//Route::get('/about-us', 'ArticleController@about_articles');
+Route::get('/about-us', function (){
+    return view('pages.about', [
+        'articles' => \App\Article::take(3)->latest()->get()
+    ]);
+});
+Route::get('/articles/{article}', 'ArticleController@show');
+Route::get('/articles', 'ArticleController@index');
+
+
+

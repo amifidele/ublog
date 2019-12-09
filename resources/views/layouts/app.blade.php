@@ -82,10 +82,10 @@
     <div class="w-70">
         <div class="">
             <ul class="list text-right">
-                <li class="inline-block mx-3"><a class="text-white no-underline" href="#">Home</a></li>
+                <li class="inline-block mx-3"><a class="text-white no-underline" href="/">Home</a></li>
                 <li class="inline-block mx-3"><a class="text-white no-underline" href="#">Our Client</a></li>
-                <li class="inline-block mx-3"><a class="text-white no-underline" href="#">About Us</a></li>
-                <li class="inline-block mx-3"><a class="text-white no-underline" href="#">Articles</a></li>
+                <li class="inline-block mx-3"><a class="text-white no-underline" href="/about-us">About Us</a></li>
+                <li class="inline-block mx-3"><a class="text-white no-underline" href="/articles">Articles</a></li>
                 <li class="inline-block mx-3"><a class="text-white no-underline" href="#">Contact Us</a></li>
             </ul>
         </div>
