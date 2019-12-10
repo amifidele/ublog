@@ -4,8 +4,11 @@
         <div class="w-100 mx-auto flex px-5">
             <div class="w-65 pt-4">
                 <div>
-                    <h1 class="text-2xl text-center">{{ $article->title }}</h1>
-                    <h3 class="text-lg text-center">{{ $article->sub_title }}</h3>
+                    <a href="/articles" class="btn bg-black-darkest rounded-full text-white"> << back</a>
+                </div>
+                <div>
+                    <h1 class="text-3xl text-center">{{ $article->title }}</h1>
+                    <p class="text-lg text-center">{{ $article->sub_title }}</p>
                 </div>
                 <div class="h-px-250">
                    <img class="clip-full" src="{{ asset('images/bg.jpeg') }}">

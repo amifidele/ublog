@@ -26,8 +26,13 @@ Route::get('/about-us', function (){
         'articles' => \App\Article::take(3)->latest()->get()
     ]);
 });
-Route::get('/articles/{article}', 'ArticleController@show');
 Route::get('/articles', 'ArticleController@index');
+Route::get('/article/create', 'ArticleController@create');
+Route::post('/articles', 'ArticleController@store');
+Route::get('/articles/{article}/edit', 'ArticleController@edit');
+Route::get('/articles/{article}', 'ArticleController@show');
+Route::put('/articles/{article}', 'ArticleController@update');
+
 
 
 
