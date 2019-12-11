@@ -23,6 +23,8 @@
             </div>
             @endforeach
         </div>
-
+        {{--<div class="w-30 mx-auto">
+            {{ $articles->link() }}
+        </div>--}}
     </div>
 @endsection

@@ -11,26 +11,19 @@ class ArticleController extends Controller
         $articles = Article::take(6)->latest()->get();
         return view('articles.index', ['articles' => $articles]);
     }
-    public function show($id){
-        $article = Article::find($id);
+    public function show(Article $article){
         return view('articles.show', ['article' => $article]);
-       /* return view('articles.show');*/
     }
     public function create(){
          return view('articles.create');
     }
 
     public function store(){
-        request()->validate([
+        Article::create(request()->validate([
             'title' => ['required', 'min:3', 'max:255'],
             'sub_title' => 'required',
             'body' => 'required'
-        ]);
-        $article = new Article();
-        $article->title = request('title');
-        $article->sub_title = request('sub_title');
-        $article->body = request('body');
-        $article->save();
+        ]));
 
         return redirect('/articles');
     }
@@ -40,12 +33,12 @@ class ArticleController extends Controller
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id){
-        $article = Article::find($id);
-        $article->title = request('title');
-        $article->sub_title = request('sub_title');
-        $article->body = request('body');
-        $article->save();
+    public function update(Article $article){
+        $article->update(request()->validate([
+            'title' => ['required', 'min:3', 'max:255'],
+            'sub_title' => 'required',
+            'body' => 'required'
+        ]));
 
         return redirect('/articles/'. $article->id);
     }
