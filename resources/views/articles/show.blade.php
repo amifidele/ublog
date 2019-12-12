@@ -17,6 +17,17 @@
                     <p class="text-xl">
                         {{ $article->body }}
                     </p>
+                    <p class="font-bold">Tags : </p>
+                    <div class="">
+                        <ul class="list inline-block">
+                    @foreach($article->tags as $tags)
+
+                                <li class=""><a class="btn btn-sm bg-black-darkest rounded-full text-white" href="/articles?tag={{ $tags->name }}">{{ $tags->name }}</a></li>
+
+                    @endforeach
+                        </ul>
+
+                    </div>
                 </div>
 
             </div>
