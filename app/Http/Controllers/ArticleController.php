@@ -22,17 +22,24 @@ class ArticleController extends Controller
         return view('articles.show', ['article' => $article]);
     }
     public function create(){
-         return view('articles.create');
+        $tags =Tag::all();
+         return view('articles.create', [
+             'tags' => $tags,
+         ]);
     }
 
     public function store(){
-        Article::create(request()->validate([
+        $article = new Article(request()->validate([
             'title' => ['required', 'min:3', 'max:255'],
             'sub_title' => 'required',
             'body' => 'required'
         ]));
+        $article->user_id = 1;
+        $article->save();
 
-        return redirect('/articles');
+        $article->tags()->attach(request('tags'));
+
+        return redirect(route('articles.index'));
     }
 
     public function edit($id){

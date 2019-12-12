@@ -23,6 +23,17 @@
                 <textarea class="form-input @error('sub_title') is-invalid border-red @enderror" name="body">{{ old('body') }}</textarea>
                 <p class="help text-red">{{ $errors->first('body') }}</p>
             </div>
+            <div class="">
+                <label class="">Tags</label>
+                <select name="tags[]" class="form-input" multiple>
+                    @foreach($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+                @error('tags')
+                <p class="help text-red">{{ $message }}</p>
+                @enderror
+            </div>
             <div class="text-center mt-5">
                 <input type="submit" class="btn btn-sm rounded-full bg-black-darkest text-white">
             </div>
